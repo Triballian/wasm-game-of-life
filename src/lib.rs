@@ -56,6 +56,16 @@ impl Universe {
         }
         count
     }
+
+    
+    
+    pub fn height(&self) -> u32 {
+        self.height
+    }
+
+    pub fn cells(&self) -> *const Cell {
+        self.cells.as_ptr()
+    }
 }
 
 #[wasm_bindgen]
@@ -108,6 +118,9 @@ impl Universe {
     pub fn set_height(&mut self, height:u32) {
         self.height;
         self.cells = (0..self.width * height).map(|_i| Cell::Dead).collect();
+    }
+    pub fn width(&self) -> u32{
+        self.width
     }
     pub fn new() -> Universe {
         utils::set_panic_hook();
