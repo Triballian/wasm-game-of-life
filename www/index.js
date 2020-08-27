@@ -1,4 +1,5 @@
 
+// error cant relove wasm-game-of-life https://rustwasm.github.io/book/game-of-life/hello-world.html#using-our-local-wasm-game-of-life-package-in-www
 import { Universe, Cell } from "wasm-game-of-life";
 import { memory } from "wasm-game-of-life/wasm_game_of_life_bg"
 
@@ -63,7 +64,7 @@ const renderLoop = () => {
 
 // Vertical lines.
 const drawGrid = () => {
-    ctx.BEGINpATH();
+    ctx.beginPath();
     ctx.strokeStyle = GRID_COLOR;
     // Verticle lines.
     for (let i = 0; i <= width; i++) {
@@ -87,7 +88,7 @@ const isPaused = () => {
 const playPauseButton = document.getElementById("play-pause");
 
 const play = () => {
-    playPauseButton.textContent = "";
+    playPauseButton.textContent = "⏸";
     renderLoop();
 };
 
